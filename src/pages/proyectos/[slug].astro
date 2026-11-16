@@ -4,7 +4,7 @@ import SiteHeader from '../../components/SiteHeader.astro';
 import { proyectos } from '../../data/proyectos.js';
 
 export function getStaticPaths() {
-  return proyectos.map((proyecto) => ({
+  return (proyectos || []).map((proyecto) => ({
     params: { slug: proyecto.slug },
     props: { proyecto },
   }));
@@ -42,7 +42,7 @@ const { proyecto } = Astro.props;
     <section class="detail-section" data-reveal>
       <h2>Tecnologías</h2>
       <div class="chip-list">
-        {proyecto.tecnologias.map((tech) => (
+        {(proyecto.tecnologias || []).map((tech) => (
           <span class="chip">{tech}</span>
         ))}
       </div>
@@ -51,7 +51,7 @@ const { proyecto } = Astro.props;
     <section class="detail-section" data-reveal>
       <h2>Funcionalidades clave</h2>
       <ul class="feature-list">
-        {proyecto.funcionalidades.map((feature) => (
+        {(proyecto.funcionalidades || []).map((feature) => (
           <li>{feature}</li>
         ))}
       </ul>
@@ -60,7 +60,7 @@ const { proyecto } = Astro.props;
     <section class="detail-section" data-reveal>
       <h2>Galería</h2>
       <div class="gallery-grid">
-        {proyecto.galeria.map((image) => (
+        {(proyecto.galeria || []).map((image) => (
           <img src={image} alt={`${proyecto.title} captura`} loading="lazy" decoding="async" />
         ))}
       </div>
