@@ -195,16 +195,21 @@ main {
 .hero-visual {
   display: flex;
   justify-content: center;
+  width: min(100%, 18rem);
+  aspect-ratio: 1;
+  justify-self: center;
+  overflow: hidden;
+  border: 3px solid rgba(139, 224, 211, 0.4);
+  border-radius: 50%;
+  box-shadow: 0 24px 60px rgba(7, 12, 18, 0.55);
+  background: #101010;
 }
 
 .hero-visual img {
-  width: min(100%, 18rem);
-  aspect-ratio: 1;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid rgba(139, 224, 211, 0.4);
-  box-shadow: 0 24px 60px rgba(7, 12, 18, 0.55);
-  background: linear-gradient(135deg, rgba(139, 224, 211, 0.18), rgba(156, 197, 255, 0.12));
+  width: 88%;
+  max-width: none;
+  height: auto;
+  display: block;
 }
 
 .eyebrow {
