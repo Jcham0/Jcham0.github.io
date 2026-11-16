@@ -1,0 +1,40 @@
+---
+import '../styles/global.css';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const {
+  title = 'Portfolio personal',
+  description = 'Portfolio personal de un desarrollador Python/Django junior con proyectos, experiencia y contacto.',
+  image = '/og-image.jpg',
+} = Astro.props;
+const canonicalUrl = 'https://jcham0.github.io';
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0d1723" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={`${canonicalUrl}${image}`} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:site_name" content="Jcham0" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${canonicalUrl}${image}`} />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Saltar al contenido</a>
+    <slot />
+    <SiteFooter />
+  </body>
+</html>

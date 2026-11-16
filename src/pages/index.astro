@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { tecnologias } from '../data/tecnologias.js';
+---
+
+<BaseLayout
+  title="Jcham0 Portfolio"
+  description="Portfolio de Jcham0, desarrollador web backend Python/Django junior, alumno de Tokio School en busca de prácticas."
+>
+  <SiteHeader />
+
+  <main class="container" id="main-content">
+    <section class="hero" data-reveal>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">Desarrollador web backend Python/Django junior</p>
+          <h1>Jcham0</h1>
+          <p class="lead">
+            Alumno de Tokio School, en busca de prácticas en desarrollo web backend.
+          </p>
+
+          <div class="cta-group">
+            <a class="button primary" href="/proyectos">Ver proyectos</a>
+            <a class="button secondary" href="/contacto">Contacto</a>
+          </div>
+        </div>
+
+        <div class="hero-visual" aria-label="Foto de perfil">
+          <img src="/img/perfil.jpg" alt="Foto de perfil de Jcham0" loading="eager" decoding="async" fetchpriority="high" />
+        </div>
+      </div>
+    </section>
+
+    <section class="about" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Sobre mí</p>
+        <h2>Apasionado por construir soluciones backend útiles.</h2>
+      </div>
+
+      <div class="about-copy">
+        <p>
+          Soy Jcham0, estudiante y desarrollador junior con interés especial en el backend web,
+          la lógica de negocio y la creación de aplicaciones que resuelvan problemas reales.
+        </p>
+        <p>
+          Me interesa Python y Django porque me permiten desarrollar proyectos claros, seguros y
+          con buen rendimiento, desde el modelo de datos hasta la experiencia final del usuario.
+        </p>
+        <p>
+          Además, estoy aprendiendo a crecer en entornos colaborativos con buenas prácticas, control
+          de versiones y herramientas de productividad.
+        </p>
+      </div>
+    </section>
+
+    <section class="tech-stack" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Tecnologías</p>
+        <h2>Herramientas y tecnologías que uso.</h2>
+      </div>
+
+      <div class="chip-list" aria-label="Tecnologías">
+        {tecnologias.map((tech) => (
+          <span class="chip">{tech}</span>
+        ))}
+      </div>
+    </section>
+  </main>
+</BaseLayout>

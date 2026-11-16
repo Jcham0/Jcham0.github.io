@@ -1,0 +1,65 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { profile } from '../data/site.js';
+
+const email = 'jchamo12345@gmail.com';
+const githubUrl = 'https://github.com/Jcham0';
+---
+
+<BaseLayout
+  title="Contacto"
+  description="Ponte en contacto con Jcham0 para proyectos backend, prácticas y colaboraciones tecnológicas."
+>
+  <SiteHeader />
+
+  <main class="container" id="main-content">
+    <header class="page-header">
+      <p class="eyebrow">Contacto</p>
+      <h1 class="section-title">Hablemos</h1>
+      <p>Estoy buscando oportunidades para aprender, colaborar y crecer como desarrollador.</p>
+    </header>
+
+    <div class="contact-card" data-reveal>
+      <ul class="contact-list">
+        <li>
+          <strong>Email:</strong>
+          <a href={`mailto:${email}`}>{email}</a>
+          <button class="copy-button" type="button" data-copy-email={email}>Copiar correo</button>
+        </li>
+        <li>
+          <strong>GitHub:</strong>
+          <a href={githubUrl} target="_blank" rel="noreferrer">github.com/Jcham0</a>
+        </li>
+        <li>
+          <strong>CV:</strong>
+          <a href="/cv.pdf" target="_blank" rel="noreferrer">Descargar CV (PDF)</a>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+  <script>
+    const button = document.querySelector('[data-copy-email]');
+
+    if (button) {
+      button.addEventListener('click', async () => {
+        const email = button.getAttribute('data-copy-email');
+
+        try {
+          await navigator.clipboard.writeText(email);
+          const originalText = button.textContent;
+          button.textContent = 'Correo copiado';
+          button.disabled = true;
+
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.disabled = false;
+          }, 1800);
+        } catch (error) {
+          button.textContent = 'No se pudo copiar';
+        }
+      });
+    }
+  </script>
+</BaseLayout>

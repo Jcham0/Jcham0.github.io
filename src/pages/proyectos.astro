@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteHeader from '../components/SiteHeader.astro';
+import { proyectos } from '../data/proyectos.js';
+---
+
+<BaseLayout
+  title="Proyectos | Jcham0"
+  description="Proyectos desarrollados con Django, Python, SQLite, Pandas y Matplotlib por Jcham0."
+>
+  <SiteHeader />
+
+  <main class="container" id="main-content">
+    <header class="page-header">
+      <p class="eyebrow">Portfolio</p>
+      <h1 class="section-title">Proyectos</h1>
+      <p>Aplicaciones web desarrolladas con Django, lógica backend y foco en soluciones reales.</p>
+    </header>
+
+    <div class="project-grid">
+      {proyectos.map((proyecto) => (
+        <article class="project-card" data-reveal>
+          <div class="project-card-header">
+            <p class="eyebrow">{proyecto.repo}</p>
+            <h3>{proyecto.title}</h3>
+          </div>
+
+          <p>{proyecto.description}</p>
+
+          <div class="chip-list compact">
+            {proyecto.tecnologias.slice(0, 4).map((tech) => (
+              <span class="chip">{tech}</span>
+            ))}
+          </div>
+
+          <div class="project-card-actions">
+            <a class="button secondary" href={`/proyectos/${proyecto.slug}`}>Ver detalle</a>
+            <a class="button primary" href={proyecto.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
