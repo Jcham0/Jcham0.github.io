@@ -57,13 +57,5 @@ const { proyecto } = Astro.props;
       </ul>
     </section>
 
-    <section class="detail-section" data-reveal>
-      <h2>Galería</h2>
-      <div class="gallery-grid">
-        {(proyecto.galeria || []).map((image) => (
-          <img src={image} alt={`${proyecto.title} captura`} loading="lazy" decoding="async" />
-        ))}
-      </div>
-    </section>
   </main>
 </BaseLayout>
