@@ -1,7 +1,9 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import ProjectVisual from '../components/ProjectVisual.astro';
 import { tecnologias } from '../data/tecnologias.js';
+import { proyectos } from '../data/proyectos.js';
 ---
 
 <BaseLayout
@@ -14,54 +16,104 @@ import { tecnologias } from '../data/tecnologias.js';
     <section class="hero" data-reveal>
       <div class="hero-layout">
         <div class="hero-copy">
-          <p class="eyebrow">Desarrollador web backend Python/Django junior</p>
-          <h1>Jcham0</h1>
-        
+          <p class="eyebrow">Desarrollo backend · Python / Django</p>
+          <h1>Hola, soy <span>Jcham0</span></h1>
+          <p class="lead">
+            Estudiante y desarrollador junior interesado en crear aplicaciones web útiles,
+            resolver problemas reales y seguir creciendo con buenas prácticas.
+          </p>
           <div class="cta-group">
             <a class="button primary" href="/proyectos">Ver proyectos</a>
             <a class="button secondary" href="/contacto">Contacto</a>
           </div>
         </div>
 
-        <div class="hero-visual" aria-label="Foto de perfil">
-          <img src="/img/perfil.jpg" alt="Foto de perfil de Jcham0" loading="eager" decoding="async" fetchpriority="high" />
+        <div class="hero-visual" aria-label="Marca visual de Jcham0">
+          <div class="hero-identity" aria-hidden="true">
+            <span>J</span>
+            <span>JCHAM0</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <section class="about" data-reveal>
+    <section class="section-block about-layout" data-reveal>
       <div class="section-heading">
         <p class="eyebrow">Sobre mí</p>
-        <h2>Apasionado por construir soluciones backend útiles.</h2>
+        <h2>Backend con propósito práctico.</h2>
       </div>
 
       <div class="about-copy">
         <p>
-          Soy Jcham0, estudiante y desarrollador junior con interés especial en el backend web,
-          la lógica de negocio y la creación de aplicaciones que resuelvan problemas reales.
+          Me interesa especialmente el backend web, la lógica de negocio y la creación de
+          aplicaciones que resuelvan problemas reales.
         </p>
         <p>
-          Me interesa Python y Django porque me permiten desarrollar proyectos claros, seguros y
-          con buen rendimiento, desde el modelo de datos hasta la experiencia final del usuario.
+          Trabajo sobre todo con Python y Django, desde el modelo de datos hasta las funcionalidades
+          que hacen más sencilla la experiencia de cada usuario.
         </p>
         <p>
-          Además, estoy aprendiendo a crecer en entornos colaborativos con buenas prácticas, control
-          de versiones y herramientas de productividad.
+          También sigo aprendiendo a colaborar con buenas prácticas, control de versiones y
+          herramientas de productividad.
         </p>
       </div>
     </section>
 
-    <section class="tech-stack" data-reveal>
-      <div class="section-heading">
-        <p class="eyebrow">Tecnologías</p>
-        <h2>Herramientas y tecnologías que uso.</h2>
+    <section class="section-block featured-projects" data-reveal>
+      <div class="section-heading section-heading-row">
+        <div>
+          <p class="eyebrow">Proyectos seleccionados</p>
+          <h2>Ideas llevadas a aplicaciones.</h2>
+        </div>
+        <a class="inline-link" href="/proyectos">Ver todos los proyectos <span aria-hidden="true">→</span></a>
       </div>
 
-      <div class="chip-list" aria-label="Tecnologías">
-        {tecnologias.map((tech) => (
-          <span class="chip">{tech}</span>
+      <div class="project-grid">
+        {proyectos.map((proyecto, index) => (
+          <article class="project-card">
+            <a class="project-preview" href={`/proyectos/${proyecto.slug}`} aria-label={`Ver detalle de ${proyecto.title}`}>
+              <ProjectVisual proyecto={proyecto} number={String(index + 1).padStart(2, '0')} />
+            </a>
+            <div class="project-card-content">
+              <p class="eyebrow">{proyecto.repo}</p>
+              <h3 class="project-card-title">
+                <a href={`/proyectos/${proyecto.slug}`}>{proyecto.title}</a>
+              </h3>
+              <p>{proyecto.description}</p>
+              <div class="chip-list compact" aria-label={`Tecnologías de ${proyecto.title}`}>
+                {proyecto.tecnologias.slice(0, 4).map((tech) => (
+                  <span class="chip">{tech}</span>
+                ))}
+              </div>
+              <div class="project-card-actions">
+                <a class="inline-link" href={`/proyectos/${proyecto.slug}`}>Explorar proyecto <span aria-hidden="true">→</span></a>
+              </div>
+            </div>
+          </article>
         ))}
       </div>
+    </section>
+
+    <section class="section-block" data-reveal>
+      <div class="tech-stack-panel">
+        <div class="section-heading">
+          <p class="eyebrow">Tecnologías</p>
+          <h2>Herramientas que utilizo.</h2>
+        </div>
+        <div class="chip-list" aria-label="Tecnologías">
+          {tecnologias.map((tech) => (
+            <span class="chip">{tech}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section-block contact-prompt" data-reveal>
+      <div class="section-heading">
+        <p class="eyebrow">Contacto</p>
+        <h2>¿Hablamos de una oportunidad o colaboración?</h2>
+      </div>
+      <a class="button primary" href="/contacto">Ponte en contacto <span aria-hidden="true">→</span></a>
     </section>
   </main>
 </BaseLayout>

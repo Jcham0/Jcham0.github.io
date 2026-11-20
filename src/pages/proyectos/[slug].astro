@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import SiteHeader from '../../components/SiteHeader.astro';
+import ProjectVisual from '../../components/ProjectVisual.astro';
 import { proyectos } from '../../data/proyectos.js';
 
 export function getStaticPaths() {
@@ -28,6 +29,10 @@ const { proyecto } = Astro.props;
         Ver código en GitHub
       </a>
     </header>
+
+    <section class="detail-visual" aria-label={`Representación visual de ${proyecto.title}`}>
+      <ProjectVisual proyecto={proyecto} detail />
+    </section>
 
     <section class="detail-section" data-reveal>
       <h2>Problema</h2>

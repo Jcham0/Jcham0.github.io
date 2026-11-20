@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import SiteHeader from '../components/SiteHeader.astro';
+import ProjectVisual from '../components/ProjectVisual.astro';
 import { proyectos } from '../data/proyectos.js';
 ---
 
@@ -18,24 +19,26 @@ import { proyectos } from '../data/proyectos.js';
     </header>
 
     <div class="project-grid">
-      {proyectos.map((proyecto) => (
+      {proyectos.map((proyecto, index) => (
         <article class="project-card" data-reveal>
-          <div class="project-card-header">
+          <a class="project-preview" href={`/proyectos/${proyecto.slug}`} aria-label={`Ver detalle de ${proyecto.title}`}>
+            <ProjectVisual proyecto={proyecto} number={String(index + 1).padStart(2, '0')} />
+          </a>
+          <div class="project-card-content">
             <p class="eyebrow">{proyecto.repo}</p>
-            <h3>{proyecto.title}</h3>
-          </div>
+            <h3 class="project-card-title"><a href={`/proyectos/${proyecto.slug}`}>{proyecto.title}</a></h3>
+            <p>{proyecto.description}</p>
 
-          <p>{proyecto.description}</p>
+            <div class="chip-list compact">
+              {proyecto.tecnologias.slice(0, 4).map((tech) => (
+                <span class="chip">{tech}</span>
+              ))}
+            </div>
 
-          <div class="chip-list compact">
-            {proyecto.tecnologias.slice(0, 4).map((tech) => (
-              <span class="chip">{tech}</span>
-            ))}
-          </div>
-
-          <div class="project-card-actions">
-            <a class="button secondary" href={`/proyectos/${proyecto.slug}`}>Ver detalle</a>
-            <a class="button primary" href={proyecto.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
+            <div class="project-card-actions">
+              <a class="button secondary" href={`/proyectos/${proyecto.slug}`}>Ver detalle</a>
+              <a class="button primary" href={proyecto.repoUrl} target="_blank" rel="noreferrer">GitHub</a>
+            </div>
           </div>
         </article>
       ))}

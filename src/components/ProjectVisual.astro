@@ -1,0 +1,25 @@
+---
+const { proyecto, number = '01', detail = false } = Astro.props;
+const visualClass = `project-visual project-visual--${proyecto.slug}${detail ? ' project-visual-detail' : ''}`;
+---
+
+<div class={visualClass} aria-hidden="true">
+  <div class="visual-frame">
+    <div class="visual-meta">
+      <span>PROYECTO · {number}</span>
+      <span class="visual-status"><i></i> PYTHON / DJANGO</span>
+    </div>
+    <div class="visual-title">{proyecto.title}</div>
+    <div class="visual-layout">
+      <div class="visual-panel visual-panel-main">
+        <div class="visual-panel-heading"><i></i><i></i><i></i></div>
+        <div class="visual-chart">
+          <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+      </div>
+      <div class="visual-panel visual-panel-side">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</div>
