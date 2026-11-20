@@ -1,116 +1,46 @@
 # Jcham0 Portfolio
 
-Portfolio personal desarrollado con Astro y pensado para presentar mi perfil como desarrollador web backend Python/Django junior.
+Portfolio personal desarrollado con **Astro** y desplegado en **GitHub Pages** mediante **GitHub Actions**, enfocado en presentar mis proyectos y competencias en **Python**, desarrollo backend con **Django** y análisis/manipulación de datos.
 
 ## Descripción
 
-Este proyecto sirve como cartera personal y profesional para:
+Este proyecto funciona como mi carta de presentación y cartera técnica para:
 
-- mostrar mi perfil y experiencia
-- presentar proyectos desarrollados con Django y Python
-- compartir tecnologías y herramientas utilizadas
-- facilitar el contacto con empresas o colaboradores
-- publicar mi CV y enlaces de GitHub
+- Mostrar mi perfil técnico, experiencia y proyectos de desarrollo.
+- Presentar aplicaciones web y proyectos construidos con **Python** y **Django**.
+- Reunir las herramientas y tecnologías con las que trabajo habitualmente.
+- Facilitar el contacto directo y el acceso a mi **CV** y a mi perfil de **GitHub**.
 
-La web está diseñada con un estilo oscuro y sereno, responsive y accesible, y se despliega en GitHub Pages.
+La web está diseñada con una estética en tonos **azules**, responsive y accesible, con publicación automática en la raíz del dominio.
 
 ## URL publicada
 
-https://jcham0.github.io
+- **Sitio web:** [https://jcham0.github.io](https://jcham0.github.io)
+- **GitHub:** [https://github.com/Jcham0](https://github.com/Jcham0)
 
-## Tecnologías
+## Stack y tecnologías
 
-- Astro
-- HTML5
-- CSS3
-- JavaScript
-- Python / Django
-- SQLite
-- Pandas
-- Matplotlib
-- Git / GitHub
-- GitHub Actions
+### Frontend y build de la web
+- **Astro**
+- **HTML5**, **CSS3** y **JavaScript**
+- **GitHub Actions** y **GitHub Pages**
 
-## Requisitos
+### Proyectos y herramientas destacadas
+- **Python** y **Django**
+- **SQLite**
+- **Pandas** y **Matplotlib**
+- **Git** y **GitHub**
 
-- Node.js 20+
-- npm
-- Git
+## Requisitos en local
+
+- **Node.js** 20 o superior
+- **npm**
+- **Git**
 
 ## Ejecutar en local
 
-1. Clona el repositorio:
+1. Clona el repositorio y entra en la carpeta del proyecto:
+
    ```bash
-   git clone https://github.com/Jcham0/Jcham0.github.io.git
+   git clone [https://github.com/Jcham0/Jcham0.github.io.git](https://github.com/Jcham0/Jcham0.github.io.git)
    cd Jcham0.github.io
-   ```
-
-2. Instala dependencias:
-   ```bash
-   npm install
-   ```
-
-3. Inicia el proyecto en modo desarrollo:
-   ```bash
-   npm run dev
-   ```
-
-4. Abre la URL de Astro en el navegador, normalmente:
-   ```text
-   http://localhost:4321
-   ```
-
-5. Para compilar la versión de producción:
-   ```bash
-   npm run build
-   npm run preview
-   ```
-
-## Despliegue en GitHub Pages
-
-El proyecto está preparado para desplegarse en GitHub Pages usando GitHub Actions.
-
-### Pasos
-
-1. Ve a tu repositorio en GitHub.
-2. Entra en Settings > Pages.
-3. Selecciona la opción GitHub Actions como fuente de despliegue.
-4. Haz push a la rama main.
-5. El workflow en .github/workflows/deploy.yml se encargará de construir y publicar el sitio.
-
-La configuración principal del sitio incluye:
-
-```js
-site: 'https://jcham0.github.io'
-```
-
-y no se usa base para dejar la publicación en la raíz del dominio.
-
-## Estructura del proyecto
-
-```text
-src/
-  components/
-  data/
-  layouts/
-  pages/
-  styles/
-public/
-  img/
-  cv.pdf
-  favicon.svg
-  og-image.jpg
-  robots.txt
-.github/
-  workflows/
-astro.config.mjs
-package.json
-README.md
-```
-
-## Consideraciones
-
-- El sitio está optimizado para móvil, tablet y escritorio.
-- Cuenta con accesibilidad básica con foco visible y enlace de salto.
-- Incluye SEO con title, description, Open Graph, Twitter Card y sitemap.
-- El contenido de proyectos y tecnologías está centralizado en archivos de datos para facilitar mantenimiento.
